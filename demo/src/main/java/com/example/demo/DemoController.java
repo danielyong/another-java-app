@@ -1,8 +1,5 @@
 package com.example.demo;
 
-import com.example.entities.Courses;
-import com.example.entities.CoursesRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
-	@Autowired 
+	@Autowired
 	private CoursesRepository courseRepo;
 
     @PostMapping(path="/add_new_course")
-  	public @ResponseBody String addNewCourse (@RequestParam String name) {
+  	public @ResponseBody String addNewCourse (@RequestParam String courseName) {
 
 		Courses c = new Courses();
-		c.setCourseName(name);
+		c.setCourseName(courseName);
 		courseRepo.save(c);
     	return "Saved";
   	}
