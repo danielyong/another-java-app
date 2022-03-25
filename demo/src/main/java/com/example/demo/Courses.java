@@ -3,10 +3,13 @@ package com.example.demo;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name="Courses")
 public class Courses {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="id")
     private long ID;
+    @Column(name = "course_name")
     private String courseName;
 
     public Courses(){}
